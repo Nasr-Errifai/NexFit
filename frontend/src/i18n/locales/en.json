@@ -1,0 +1,64 @@
+{
+  "app": {
+    "name": "NexFit",
+    "tagline": "Your all-in-one fitness platform"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "library": "Exercises",
+    "programs": "Programs",
+    "progress": "Progress",
+    "history": "History",
+    "settings": "Settings",
+    "logout": "Log out"
+  },
+  "auth": {
+    "login": "Log in",
+    "register": "Create account",
+    "email": "Email address",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?"
+  },
+  "onboarding": {
+    "title": "Your sports profile",
+    "subtitle": "A few questions to tailor your recommendations",
+    "level": "Level",
+    "levelBeginner": "Beginner",
+    "levelIntermediate": "Intermediate",
+    "levelAdvanced": "Advanced",
+    "goal": "Goal",
+    "goalWeightLoss": "Get in shape",
+    "goalStrength": "Strength",
+    "goalHypertrophy": "Hypertrophy",
+    "goalConditioning": "Conditioning",
+    "daysPerWeek": "Days per week",
+    "sessionDuration": "Session duration",
+    "equipment": "Available equipment",
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish"
+  },
+  "workout": {
+    "start": "Start workout",
+    "complete": "Complete workout",
+    "restTimer": "Rest",
+    "set": "Set",
+    "reps": "Reps",
+    "weight": "Weight (kg)",
+    "skip": "Skip",
+    "replace": "Replace",
+    "finished": "Workout finished!",
+    "summary": "Summary"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back"
+  }
+}

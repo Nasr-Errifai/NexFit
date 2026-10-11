@@ -1,0 +1,64 @@
+{
+  "app": {
+    "name": "NexFit",
+    "tagline": "Ta plateforme fitness tout-en-un"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "library": "Exercices",
+    "programs": "Programmes",
+    "progress": "Progression",
+    "history": "Historique",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas encore de compte ?",
+    "hasAccount": "Déjà un compte ?"
+  },
+  "onboarding": {
+    "title": "Ton profil sportif",
+    "subtitle": "Quelques questions pour adapter tes recommandations",
+    "level": "Niveau",
+    "levelBeginner": "Débutant",
+    "levelIntermediate": "Intermédiaire",
+    "levelAdvanced": "Avancé",
+    "goal": "Objectif",
+    "goalWeightLoss": "Remise en forme",
+    "goalStrength": "Force",
+    "goalHypertrophy": "Hypertrophie",
+    "goalConditioning": "Condition physique",
+    "daysPerWeek": "Jours par semaine",
+    "sessionDuration": "Durée d'une séance",
+    "equipment": "Équipement disponible",
+    "next": "Suivant",
+    "back": "Retour",
+    "finish": "Terminer"
+  },
+  "workout": {
+    "start": "Démarrer la séance",
+    "complete": "Terminer la séance",
+    "restTimer": "Repos",
+    "set": "Série",
+    "reps": "Répétitions",
+    "weight": "Poids (kg)",
+    "skip": "Passer",
+    "replace": "Remplacer",
+    "finished": "Séance terminée !",
+    "summary": "Résumé"
+  },
+  "common": {
+    "loading": "Chargement…",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "back": "Retour"
+  }
+}
