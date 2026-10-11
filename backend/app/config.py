@@ -10,6 +10,7 @@ class Settings(BaseSettings):
 
     SUPABASE_URL: str = ""
     SUPABASE_JWT_SECRET: str = ""
+    SUPABASE_PROJECT_REF: str = ""
 
     CORS_ORIGINS: list[str] = ["http://localhost:5173"]
 
