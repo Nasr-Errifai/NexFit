@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { apiJson } from '../../lib/supabase'
+import { useAuth } from '../../context/AuthContext'
 
 const EQUIPMENT = [
   { id: 'barbell', fr: 'Barre', en: 'Barbell' },
@@ -17,6 +18,7 @@ const STEPS = 5
 export default function OnboardingPage() {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
+  const { refreshProfile } = useAuth()
   const lang = i18n.language === 'en' ? 'en' : 'fr'
 
   const [step, setStep] = useState(0)
@@ -54,6 +56,8 @@ export default function OnboardingPage() {
           equipment,
         }),
       })
+      // recharger le profil : Home se bascule sur has_sports_profile
+      await refreshProfile()
       navigate('/')
     } catch (err) {
       setError(err instanceof Error ? err.message : t('common.error'))

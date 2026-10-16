@@ -17,6 +17,9 @@
     "register": "Create account",
     "email": "Email address",
     "password": "Password",
+    "displayName": "Display name",
+    "passwordHint": "At least 8 characters.",
+    "checkEmail": "Account created. Check your inbox to confirm your address.",
     "forgotPassword": "Forgot password?",
     "noAccount": "Don't have an account?",
     "hasAccount": "Already have an account?"
@@ -36,9 +39,15 @@
     "daysPerWeek": "Days per week",
     "sessionDuration": "Session duration",
     "equipment": "Available equipment",
+    "equipmentHint": "Pick at least one type of equipment.",
     "next": "Next",
     "back": "Back",
     "finish": "Finish"
+  },
+  "home": {
+    "welcome": "Welcome, {{name}}.",
+    "onboardingDone": "Sports profile completed",
+    "nextSteps": "Next steps: exercise library, programs, workout mode."
   },
   "workout": {
     "start": "Start workout",

@@ -17,6 +17,9 @@
     "register": "Créer un compte",
     "email": "Adresse e-mail",
     "password": "Mot de passe",
+    "displayName": "Nom affiché",
+    "passwordHint": "8 caractères minimum.",
+    "checkEmail": "Compte créé. Vérifie ta boîte mail pour confirmer ton adresse.",
     "forgotPassword": "Mot de passe oublié ?",
     "noAccount": "Pas encore de compte ?",
     "hasAccount": "Déjà un compte ?"
@@ -36,9 +39,15 @@
     "daysPerWeek": "Jours par semaine",
     "sessionDuration": "Durée d'une séance",
     "equipment": "Équipement disponible",
+    "equipmentHint": "Choisis au moins un équipement.",
     "next": "Suivant",
     "back": "Retour",
     "finish": "Terminer"
+  },
+  "home": {
+    "welcome": "Bienvenue, {{name}}.",
+    "onboardingDone": "Profil sportif complété",
+    "nextSteps": "Prochaines étapes : bibliothèque d'exercices, programmes, mode entraînement."
   },
   "workout": {
     "start": "Démarrer la séance",
