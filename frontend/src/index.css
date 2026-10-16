@@ -1,37 +1,45 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #eef2ff;
-  --color-primary-100: #e0e7ff;
-  --color-primary-200: #c7d2fe;
-  --color-primary-300: #a5b4fc;
-  --color-primary-400: #818cf8;
-  --color-primary-500: #6366f1;
-  --color-primary-600: #4f46e5;
-  --color-primary-700: #4338ca;
-  --color-primary-800: #3730a3;
-  --color-primary-900: #312e81;
-  --color-primary-950: #1e1b4b;
+  /* Primaire — vert citron athlétique */
+  --color-primary-50: #f6fee7;
+  --color-primary-100: #ecfccb;
+  --color-primary-200: #d9f99d;
+  --color-primary-300: #c8f66b;
+  --color-primary-400: #b7f34d; /* marque */
+  --color-primary-500: #9fe02e;
+  --color-primary-600: #7fbc15;
+  --color-primary-700: #629311;
+  --color-primary-800: #4f7514;
+  --color-primary-900: #426216;
+  --color-primary-950: #233707;
 
+  /* Surfaces neutres chaudes */
   --color-surface-0: #ffffff;
-  --color-surface-50: #f8fafc;
-  --color-surface-100: #f1f5f9;
-  --color-surface-200: #e2e8f0;
-  --color-surface-300: #cbd5e1;
-  --color-surface-400: #94a3b8;
-  --color-surface-500: #64748b;
-  --color-surface-600: #475569;
-  --color-surface-700: #334155;
-  --color-surface-800: #1e293b;
-  --color-surface-900: #0f172a;
-  --color-surface-950: #020617;
+  --color-surface-50: #f6f7f4;
+  --color-surface-100: #eceee8;
+  --color-surface-200: #e5e7e2;
+  --color-surface-300: #d3d6cd;
+  --color-surface-400: #9a9e93;
+  --color-surface-500: #73776f;
+  --color-surface-600: #5b5f57;
+  --color-surface-700: #474a43;
+  --color-surface-800: #30332d;
+  --color-surface-900: #20231f; /* texte principal */
+  --color-surface-950: #131512;
 
-  --color-success-500: #22c55e;
-  --color-success-600: #16a34a;
-  --color-warning-500: #eab308;
-  --color-warning-600: #ca8a04;
-  --color-error-500: #ef4444;
-  --color-error-600: #dc2626;
+  /* Accent — terracotta (indicateurs, alertes douces) */
+  --color-accent-500: #c8572d;
+  --color-accent-600: #a8481f;
+  --color-accent-400: #dd7a52;
+
+  /* Sémantique */
+  --color-success-500: #4f9d26;
+  --color-success-600: #3f8019;
+  --color-warning-500: #d9a307;
+  --color-warning-600: #b28406;
+  --color-error-500: #d2483f;
+  --color-error-600: #b23a32;
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Inter", system-ui, -apple-system, sans-serif;
@@ -53,7 +61,7 @@
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background: var(--color-surface-50);
+  background: var(--color-surface-0);
   color: var(--color-surface-900);
   -webkit-font-smoothing: antialiased;
 }

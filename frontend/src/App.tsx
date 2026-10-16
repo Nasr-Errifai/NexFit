@@ -19,7 +19,7 @@ function Home() {
           onClick={() => setLanguage('fr')}
           className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
             i18n.language === 'fr'
-              ? 'bg-primary-600 text-white'
+              ? 'bg-primary-400 text-surface-900'
               : 'bg-surface-100 text-surface-600 hover:bg-surface-200'
           }`}
         >
@@ -29,7 +29,7 @@ function Home() {
           onClick={() => setLanguage('en')}
           className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
             i18n.language === 'en'
-              ? 'bg-primary-600 text-white'
+              ? 'bg-primary-400 text-surface-900'
               : 'bg-surface-100 text-surface-600 hover:bg-surface-200'
           }`}
         >

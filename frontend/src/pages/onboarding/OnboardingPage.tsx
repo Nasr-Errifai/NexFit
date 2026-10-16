@@ -73,7 +73,7 @@ export default function OnboardingPage() {
         onClick={() => onSelect(item.value)}
         className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
           selected === item.value
-            ? 'border-primary-600 bg-primary-50 text-primary-700'
+            ? 'border-primary-400 bg-primary-50 text-surface-900'
             : 'border-surface-200 bg-white hover:border-surface-300'
         }`}
       >
@@ -142,7 +142,7 @@ export default function OnboardingPage() {
               <div className="space-y-6">
                 <h2 className="text-xl font-semibold text-surface-900">{t('onboarding.daysPerWeek')}</h2>
                 <div className="text-center">
-                  <span className="text-6xl font-bold text-primary-600">{daysPerWeek}</span>
+                  <span className="text-6xl font-bold text-primary-700">{daysPerWeek}</span>
                   <p className="mt-2 text-surface-500">
                     {daysPerWeek <= 2
                       ? lang === 'fr'
@@ -173,7 +173,7 @@ export default function OnboardingPage() {
               <div className="space-y-6">
                 <h2 className="text-xl font-semibold text-surface-900">{t('onboarding.sessionDuration')}</h2>
                 <div className="text-center">
-                  <span className="text-6xl font-bold text-primary-600">{duration}</span>
+                  <span className="text-6xl font-bold text-primary-700">{duration}</span>
                   <p className="mt-2 text-surface-500">{lang === 'fr' ? 'minutes' : 'minutes'}</p>
                 </div>
                 <input
@@ -203,7 +203,7 @@ export default function OnboardingPage() {
                       onClick={() => toggleEquipment(eq.id)}
                       className={`p-4 rounded-xl border-2 text-center font-medium transition-colors ${
                         equipment.includes(eq.id)
-                          ? 'border-primary-600 bg-primary-50 text-primary-700'
+                          ? 'border-primary-400 bg-primary-50 text-surface-900'
                           : 'border-surface-200 bg-white hover:border-surface-300'
                       }`}
                     >
@@ -232,7 +232,7 @@ export default function OnboardingPage() {
                   type="button"
                   onClick={next}
                   disabled={!canNext()}
-                  className="flex-1 py-3 px-4 rounded-lg bg-primary-600 text-white font-medium hover:bg-primary-700 disabled:opacity-50 transition-colors"
+                  className="flex-1 py-3 px-4 rounded-lg bg-primary-400 text-surface-900 font-semibold hover:bg-primary-500 disabled:opacity-50 transition-colors"
                 >
                   {t('onboarding.next')}
                 </button>
@@ -240,7 +240,7 @@ export default function OnboardingPage() {
                 <button
                   type="submit"
                   disabled={!canNext() || loading}
-                  className="flex-1 py-3 px-4 rounded-lg bg-primary-600 text-white font-medium hover:bg-primary-700 disabled:opacity-50 transition-colors"
+                  className="flex-1 py-3 px-4 rounded-lg bg-primary-400 text-surface-900 font-semibold hover:bg-primary-500 disabled:opacity-50 transition-colors"
                 >
                   {loading ? t('common.loading') : t('onboarding.finish')}
                 </button>

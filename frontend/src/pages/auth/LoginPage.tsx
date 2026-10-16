@@ -28,7 +28,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-surface-50 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="text-4xl font-bold text-primary-600 tracking-tight">
+          <Link to="/" className="text-4xl font-bold text-primary-700 tracking-tight">
             {t('app.name')}
           </Link>
         </div>
@@ -76,7 +76,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 px-4 rounded-lg bg-primary-600 text-white font-medium hover:bg-primary-700 disabled:opacity-50 transition-colors"
+              className="w-full py-3 px-4 rounded-lg bg-primary-400 text-surface-900 font-semibold hover:bg-primary-500 disabled:opacity-50 transition-colors"
             >
               {loading ? t('common.loading') : t('auth.login')}
             </button>
@@ -84,7 +84,7 @@ export default function LoginPage() {
 
           <p className="mt-6 text-center text-sm text-surface-500">
             {t('auth.noAccount')}{' '}
-            <Link to="/register" className="text-primary-600 font-medium hover:underline">
+            <Link to="/register" className="text-primary-700 font-medium hover:underline">
               {t('auth.register')}
             </Link>
           </p>
