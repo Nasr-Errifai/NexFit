@@ -103,8 +103,8 @@ Chaque push/PR sur `main` déclenche :
 ## Roadmap
 
 - ✅ Jalon 1 — Scaffold monorepo, CI, migrations initiales
-- ⬜ Jalon 2 — Schéma complet + RLS + seed exercices
-- ⬜ Jalon 3 — Auth + onboarding
+- ✅ Jalon 2 — Schéma complet + RLS + seed exercices (69 exercices, 3 programmes)
+- ✅ Jalon 3 — Auth (JWT via JWKS) + /me + onboarding + design system lime
 - ⬜ Jalon 4 — Bibliothèque d'exercices
 - ⬜ Jalon 5 — Programmes
 - ⬜ Jalon 6 — Mode entraînement (hors-ligne)
@@ -112,6 +112,8 @@ Chaque push/PR sur `main` déclenche :
 - ⬜ Jalon 8 — Moteur de règles explicables
 - ⬜ Jalon 9 — Admin + i18n + settings
 - ⬜ Jalon 10 — Tests finaux + polish
+
+Phase ultérieure : arabe + RTL, assistant IA, Premium, Gym Finder.
 
 ## Licence
 
