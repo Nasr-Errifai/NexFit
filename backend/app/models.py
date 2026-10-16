@@ -3,6 +3,7 @@ from datetime import date, datetime
 from decimal import Decimal
 
 from sqlalchemy import (
+    Uuid,
     Boolean,
     Date,
     DateTime,
@@ -13,7 +14,7 @@ from sqlalchemy import (
     Text,
     func,
 )
-from sqlalchemy.dialects.postgresql import ARRAY, JSONB, UUID
+from sqlalchemy.dialects.postgresql import ARRAY, JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.types import JSON
 
@@ -28,7 +29,7 @@ ArrayType = ARRAY(Text).with_variant(JSON(), "sqlite")
 class Profile(Base):
     __tablename__ = "profiles"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True)
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True)
     role: Mapped[str] = mapped_column(Text, default="user")
     display_name: Mapped[str | None] = mapped_column(Text)
     avatar_path: Mapped[str | None] = mapped_column(Text)
@@ -42,7 +43,7 @@ class Profile(Base):
 class SportsProfile(Base):
     __tablename__ = "sports_profiles"
 
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"), primary_key=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"), primary_key=True)
     level: Mapped[str] = mapped_column(Text)
     goal: Mapped[str] = mapped_column(Text)
     days_per_week: Mapped[int] = mapped_column(Integer)
@@ -59,7 +60,7 @@ class SportsProfile(Base):
 class Exercise(Base):
     __tablename__ = "exercises"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name_fr: Mapped[str] = mapped_column(Text)
     name_en: Mapped[str] = mapped_column(Text, unique=True)
     muscle_group: Mapped[str] = mapped_column(Text)
@@ -84,9 +85,9 @@ class Exercise(Base):
 class ExerciseAlternative(Base):
     __tablename__ = "exercise_alternatives"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    exercise_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
-    alternative_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    exercise_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
+    alternative_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
     reason_fr: Mapped[str | None] = mapped_column(Text)
     reason_en: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
@@ -98,7 +99,7 @@ class ExerciseAlternative(Base):
 class Program(Base):
     __tablename__ = "programs"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name_fr: Mapped[str] = mapped_column(Text)
     name_en: Mapped[str] = mapped_column(Text)
     description_fr: Mapped[str | None] = mapped_column(Text)
@@ -108,7 +109,7 @@ class Program(Base):
     level: Mapped[str] = mapped_column(Text)
     goal: Mapped[str] = mapped_column(Text)
     source: Mapped[str] = mapped_column(Text, default="predefined")
-    created_by: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="set null"))
+    created_by: Mapped[uuid.UUID | None] = mapped_column(Uuid(as_uuid=True), ForeignKey("profiles.id", ondelete="set null"))
     is_public: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
@@ -119,8 +120,8 @@ class Program(Base):
 class ProgramDay(Base):
     __tablename__ = "program_days"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    program_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("programs.id", ondelete="cascade"))
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    program_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("programs.id", ondelete="cascade"))
     day_index: Mapped[int] = mapped_column(Integer)
     name_fr: Mapped[str] = mapped_column(Text)
     name_en: Mapped[str] = mapped_column(Text)
@@ -135,9 +136,9 @@ class ProgramDay(Base):
 class ProgramExercise(Base):
     __tablename__ = "program_exercises"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    program_day_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("program_days.id", ondelete="cascade"))
-    exercise_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    program_day_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("program_days.id", ondelete="cascade"))
+    exercise_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
     order_index: Mapped[int] = mapped_column(Integer)
     target_sets: Mapped[int] = mapped_column(Integer)
     target_reps: Mapped[str] = mapped_column(Text)
@@ -152,15 +153,15 @@ class ProgramExercise(Base):
 class Workout(Base):
     __tablename__ = "workouts"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"))
-    program_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), ForeignKey("programs.id", ondelete="set null"))
-    program_day_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), ForeignKey("program_days.id", ondelete="set null"))
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"))
+    program_id: Mapped[uuid.UUID | None] = mapped_column(Uuid(as_uuid=True), ForeignKey("programs.id", ondelete="set null"))
+    program_day_id: Mapped[uuid.UUID | None] = mapped_column(Uuid(as_uuid=True), ForeignKey("program_days.id", ondelete="set null"))
     date: Mapped[date] = mapped_column(Date, default=date.today)
     status: Mapped[str] = mapped_column(Text, default="planned")
     started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
-    client_token: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
+    client_token: Mapped[uuid.UUID | None] = mapped_column(Uuid(as_uuid=True))
     notes: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
@@ -171,9 +172,9 @@ class Workout(Base):
 class WorkoutSet(Base):
     __tablename__ = "workout_sets"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    workout_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("workouts.id", ondelete="cascade"))
-    exercise_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    workout_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("workouts.id", ondelete="cascade"))
+    exercise_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
     set_index: Mapped[int] = mapped_column(Integer)
     target_reps: Mapped[int | None] = mapped_column(Integer)
     reps: Mapped[int | None] = mapped_column(Integer)
@@ -189,20 +190,20 @@ class WorkoutSet(Base):
 class PersonalRecord(Base):
     __tablename__ = "personal_records"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"))
-    exercise_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"))
+    exercise_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("exercises.id", ondelete="cascade"))
     record_type: Mapped[str] = mapped_column(Text)
     value: Mapped[Decimal] = mapped_column(Numeric(10, 2))
-    workout_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), ForeignKey("workouts.id", ondelete="set null"))
+    workout_id: Mapped[uuid.UUID | None] = mapped_column(Uuid(as_uuid=True), ForeignKey("workouts.id", ondelete="set null"))
     achieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 
 class Goal(Base):
     __tablename__ = "goals"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"))
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"))
     type: Mapped[str] = mapped_column(Text)
     target: Mapped[Decimal] = mapped_column(Numeric(10, 2))
     current: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=0)
@@ -216,10 +217,10 @@ class Goal(Base):
 class RecommendationLog(Base):
     __tablename__ = "recommendation_logs"
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"))
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("profiles.id", ondelete="cascade"))
     input_snapshot: Mapped[dict] = mapped_column(JSONType, default=dict)
     explanation: Mapped[str] = mapped_column(Text)
     accepted: Mapped[bool | None] = mapped_column(Boolean)
-    applied_program_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), ForeignKey("programs.id", ondelete="set null"))
+    applied_program_id: Mapped[uuid.UUID | None] = mapped_column(Uuid(as_uuid=True), ForeignKey("programs.id", ondelete="set null"))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

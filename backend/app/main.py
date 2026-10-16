@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
-from app.routes import exercises, programs
+from app.routes import exercises, me, programs
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -20,6 +20,7 @@ app.add_middleware(
 
 app.include_router(exercises.router)
 app.include_router(programs.router)
+app.include_router(me.router)
 
 
 @app.get("/health")
